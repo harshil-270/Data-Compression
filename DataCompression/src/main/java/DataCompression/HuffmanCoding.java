@@ -11,6 +11,7 @@
 package DataCompression;
 import java.util.*;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 class Node {
     int data;
@@ -33,10 +34,10 @@ class myComparator implements Comparator<Node> {
 }
 
 public class HuffmanCoding {
-    static String filename;
+    static String filePath;
 
-    HuffmanCoding(String filename) {
-        this.filename = filename;
+    HuffmanCoding(String filePath) {
+        this.filePath = filePath;
         run();
     }
     public static void buildTree(Node root, String s, TreeMap<Character, String> table, StringBuilder tree) {
@@ -50,26 +51,31 @@ public class HuffmanCoding {
         tree.append("0");
         buildTree(root.left, s + "0", table, tree);
         buildTree(root.right, s + "1", table, tree);
-        
-        return;
     }
 
     public static void run() {
         // Read, and count frequency
         char[] charArray = new char[1000];
         int[] charFreq = new int[1000];
-        File myObj = new File(filename);
+        File myObj = new File(filePath);
         String fileData = "";
         try {
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                fileData += myReader.nextLine();
-                fileData += "\n";
+            StringBuilder sb = new StringBuilder();
+            File file = new File(filePath);
+            //Scan the data from file and store it in string.
+            try (BufferedReader myReader = new BufferedReader(new FileReader(file))){
+                String line = myReader.readLine();
+                while (line != null){
+                    sb.append(line + "\n");
+                    line = myReader.readLine();
+                }
             }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+            catch (IOException e){
+                System.out.println(e);
+            }
+            fileData = sb.toString();
+        } catch (Exception e) {
+            System.out.println(e);
         }
 
         int mainSize = fileData.length();
@@ -130,14 +136,13 @@ public class HuffmanCoding {
         }
 
         // Binary Code to Anscii Code
-        char[] charBinaryCode = binaryCode.toCharArray();
         int noOfBits = 7;
         String ansciiCode = "";
         int extraData = 0;
-        for (int i = 0; i < charBinaryCode.length; i += noOfBits) {
+        for (int i = 0; i < binaryCode.length(); i += noOfBits) {
             int ansciiChar = 0, cnt = 0;
-            for (int j = 0; j < noOfBits && i + j < charBinaryCode.length; j++) {
-                if (charBinaryCode[i + j] == '1')
+            for (int j = 0; j < noOfBits && i + j < binaryCode.length(); j++) {
+                if (binaryCode.charAt(i + j) == '1')
                     ansciiChar += Math.pow(2, 6 - j);
                 cnt++;
             }
@@ -146,26 +151,22 @@ public class HuffmanCoding {
         }
         // OUTPUT IN FILE
         try {
-            File compress = new File("Compress.txt");
-            compress.createNewFile();
-            FileWriter myWriter = new FileWriter(compress);
+            //Store huffman tree and compressed data into the file.
             String treeMain = tree.toString();
-            
             String treeSize = String.format("%05d", treeMain.length()) ;
-            myWriter.write(treeSize);
             String dataSize = String.format("%05d", ansciiCode.length()) ;
-            myWriter.write(dataSize);
+            String extraSize = String.format("%d", extraData);
+            byte[] b = extraSize.getBytes(StandardCharsets.UTF_8);
             
-            // tree print
-            myWriter.write(treeMain);
-            // anscii code print
-            myWriter.write(ansciiCode);
-            myWriter.write(extraData);
-            myWriter.close();
-
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+            String s = treeSize + dataSize + treeMain + ansciiCode + b[0] ;
+            
+            String fileSavePath = filePath.substring(0, filePath.lastIndexOf('\\') + 1) + "Compress.txt";
+            File file = new File(fileSavePath);
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                writer.write(s);
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred. Error : " + e);
         }
     }
 }

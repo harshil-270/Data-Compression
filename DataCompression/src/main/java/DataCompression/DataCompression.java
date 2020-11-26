@@ -42,7 +42,7 @@ public class DataCompression extends javax.swing.JFrame {
         selectFile = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Data Compresion");
+        setTitle("Data Compression");
 
         compressButton.setText("Compress");
         compressButton.addActionListener(new java.awt.event.ActionListener() {
