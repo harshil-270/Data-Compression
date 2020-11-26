@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -16,19 +16,14 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
+![Contributors][contributors-shield]
+![Technologies Used][t-s]
 
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -77,7 +72,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![Product Name Screen Shot][product-screenshot]
 
 This is a Text Compression and Decompression Application which is built by using Huffman's Algorithm.
 
@@ -139,6 +134,8 @@ Project Link: [https://github.com/harshil-270/Data-Compression/](https://github.
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [Mufaddal Naya](https://github.com/mufaddalnaya) - For Providing Such Great Ideas
-=======
-# Data-Compression
->>>>>>> d0f1b08510d5db39b1d4fcf7f42650772cc084b4
+
+[contributors-shield]: https://img.shields.io/github/contributors/harshil-270/Data-Compression
+[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[t-s]: https://img.shields.io/badge/Java-Netbeans-blue
+[product-screenshot]: images/ss.png
