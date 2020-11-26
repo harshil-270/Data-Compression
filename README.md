@@ -138,4 +138,4 @@ Project Link: [https://github.com/harshil-270/Data-Compression/](https://github.
 [contributors-shield]: https://img.shields.io/github/contributors/harshil-270/Data-Compression
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [t-s]: https://img.shields.io/badge/Java-Netbeans-blue
-[product-screenshot]: images/ss.png
+[product-screenshot]: images/ss.PNG
