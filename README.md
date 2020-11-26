@@ -1,3 +1,1 @@
 # Data-Compression
-
-Hello World!
