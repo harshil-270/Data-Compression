@@ -102,7 +102,7 @@ Select the text file to compress.
 Click "Compress" Button.
 
 
-* Compress
+* Decompress
 Run the application.
 Select the text file to decompress.
 Click "Decompress" Button.
