@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -138,3 +139,6 @@ Project Link: [https://github.com/harshil-270/Data-Compression/](https://github.
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [Mufaddal Naya](https://github.com/mufaddalnaya) - For Providing Such Great Ideas
+=======
+# Data-Compression
+>>>>>>> d0f1b08510d5db39b1d4fcf7f42650772cc084b4
